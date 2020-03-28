@@ -1,6 +1,7 @@
 class Kruskal:
 # Comentario Inicial
 #david chavez villarroel estuvo aqui
+# Comentario Inicial
     def __init__(self):
         self.nodes = {}
         self.order = {}
