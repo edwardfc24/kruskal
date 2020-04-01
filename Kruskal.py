@@ -15,6 +15,7 @@ class Kruskal:
     def __init__(self):
         self.nodes = {}
         self.order = {}
+        self.loadInputs()
 
 
     def prepare_data(self, node):
@@ -57,3 +58,25 @@ class Kruskal:
                 self.validate_union(origin, destination)
                 tree.append(edge)
         return tree
+
+
+    def loadInputs(self):
+        print('Ingrese la lista de nodos: ')
+        input_nodes = input()
+        nodes_list = input_nodes.split(',')
+        input_edges = ''
+        end_key = 'cls'
+        edge_list = []
+        print('Ingrese las aristas: ')
+        while input_edges.__ne__(end_key):
+            input_edges = input()
+            if(input_edges.__ne__(end_key)):
+                aux_list = input_edges.split(',')
+                weight = int(aux_list[2])
+                aux_list[2] = weight
+                edge_list.append(aux_list)
+        print(self.kruskal(nodes_list, edge_list))
+            
+
+
+obj = Kruskal()
