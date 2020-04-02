@@ -72,3 +72,18 @@ for res in tree:
     suma = suma + int(res[2])
 print(suma)
 
+
+# Para correr el archivo en la consola en mi caso se coloca python3 Kruskal.py 
+# Resultado
+# ['b', 'c', 1]
+# ['i', 'j', 1]
+# ['b', 'e', 2]
+# ['c', 'g', 2]
+# ['d', 'c', 2]
+# ['i', 'g', 2]
+# ['k', 'l', 3]
+# ['e', 'f', 4]
+# ['a', 'b', 6]
+# ['j', 'l', 8]
+# ['f', 'h', 10]
+# 41
