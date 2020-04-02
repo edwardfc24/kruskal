@@ -1,3 +1,4 @@
+from operator import itemgetter
 class Kruskal:
     # Método Kruskal(Grafo)
     # Se inicializa el árbol de expansión mínima vacío                                                 
@@ -48,6 +49,7 @@ class Kruskal:
             self.prepare_data(node)
         # Ordenar la lista
         edges.sort()
+        edges = sorted(edges, key=itemgetter(2))
         for edge in edges:
             origin, destination, weight = edge
             #  String origin = edge[0];
@@ -57,3 +59,16 @@ class Kruskal:
                 self.validate_union(origin, destination)
                 tree.append(edge)
         return tree
+
+
+nodes = ['a','b','c','d','e','f','g','h','i','j','k','l']
+edges = [['a','b',6],['a','c',6],['b','c',1],['a','d',6],['d','c',2],['b','e',2],['e','c',7],['e','f',4],['f','g',11],['c','g',2],['f','h',10],['h','g',22],['h','i',12],['i','g',2],['h','k',25],['i','k',16],['d','j',18],['i','j',1],['k','l',3],['j','l',8]]
+tree = Kruskal()
+tree = tree.kruskal(nodes,edges)
+
+suma = 0
+for res in tree:
+    print(str(res))
+    suma = suma + int(res[2])
+print(suma)
+
