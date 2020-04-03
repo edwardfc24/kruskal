@@ -61,10 +61,40 @@ class Kruskal:
         return tree
 
 
-nodes = ['a','b','c','d','e','f','g','h','i','j','k','l']
-edges = [['a','b',6],['a','c',6],['b','c',1],['a','d',6],['d','c',2],['b','e',2],['e','c',7],['e','f',4],['f','g',11],['c','g',2],['f','h',10],['h','g',22],['h','i',12],['i','g',2],['h','k',25],['i','k',16],['d','j',18],['i','j',1],['k','l',3],['j','l',8]]
+# nodes = ['a','b','c','d','e','f','g','h','i','j','k','l']
+# edges = [['a','b',6],['a','c',6],['b','c',1],['a','d',6],['d','c',2],['b','e',2],['e','c',7],['e','f',4],['f','g',11],['c','g',2],['f','h',10],['h','g',22],['h','i',12],['i','g',2],['h','k',25],['i','k',16],['d','j',18],['i','j',1],['k','l',3],['j','l',8]]
+
+# Proceso para pedir nodos
+print('Ingresar cantidad de nodos')
+cantidad = input()
+while not cantidad.isnumeric():
+    cantidad = input() 
+nodos = []
+cantidad = int(cantidad)
+while cantidad > 0:
+    nodos.append(input())
+    cantidad = cantidad - 1
+
+# Proceso para pedir aristas
+print('Ingresar cantidad de aristas')
+cantidad = input()
+while not cantidad.isnumeric():
+    cantidad = input()
+print('Ingresar las aristas o edges en el siguiente formato: ')
+print('ejemplo: a b 12')
+cantidad = int(cantidad)
+arista = []
+while cantidad > 0:
+    edge = input().strip().split(' ')
+    if not len(edge) == 3:
+        cantidad = cantidad + 1
+    else:
+        edge[2] = int(edge[2])
+        arista.append(edge)
+        cantidad = cantidad - 1
+
 tree = Kruskal()
-tree = tree.kruskal(nodes,edges)
+tree = tree.kruskal(nodos,arista)
 
 suma = 0
 for res in tree:
