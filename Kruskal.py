@@ -47,9 +47,7 @@ class Kruskal:
         for node in nodes: 
             self.prepare_data(node)
         # Ordenar la lista
-        print(edges)
         edges.sort(key = itemgetter(2)) #Aqui se tiene que agregar el itemgetter para ordenar lo por peso antes no lo hacia
-        print(edges)
         for edge in edges:
             origin, destination, weight = edge
             #  String origin = edge[0];
