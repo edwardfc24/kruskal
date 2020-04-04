@@ -48,7 +48,6 @@ class Kruskal:
         for node in nodes: 
             self.prepare_data(node)
         # Ordenar la lista
-        edges.sort()
         edges = sorted(edges, key=itemgetter(2))
         for edge in edges:
             origin, destination, weight = edge
