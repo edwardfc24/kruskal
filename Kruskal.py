@@ -10,7 +10,7 @@ class Kruskal:
     #                         Se unen  las componentes de u y v
     #                 Fin Si
     # Fin Para
-    # Fin Método Kruskal
+    # Fin Método Kruskal ---
 
 
     def __init__(self):
