@@ -1,3 +1,4 @@
+from operator import itemgetter
 class Kruskal:
     # Método Kruskal(Grafo)
     # Se inicializa el árbol de expansión mínima vacío                                                 
@@ -48,7 +49,7 @@ class Kruskal:
         for node in nodes: 
             self.prepare_data(node)
         # Ordenar la lista
-        edges.sort()
+        edges.sort(key = itemgetter(2))
         for edge in edges:
             origin, destination, weight = edge
             #  String origin = edge[0];
@@ -59,24 +60,17 @@ class Kruskal:
                 tree.append(edge)
         return tree
 
-
-    def loadInputs(self):
-        print('Ingrese la lista de nodos: ')
-        input_nodes = input()
-        nodes_list = input_nodes.split(',')
-        input_edges = ''
-        end_key = 'cls'
-        edge_list = []
-        print('Ingrese las aristas: ')
-        while input_edges.__ne__(end_key):
-            input_edges = input()
-            if(input_edges.__ne__(end_key)):
-                aux_list = input_edges.split(',')
-                weight = int(aux_list[2])
-                aux_list[2] = weight
-                edge_list.append(aux_list)
-        print(self.kruskal(nodes_list, edge_list))
-            
-
-
-obj = Kruskal()
+### Inicializar la clase kruskal y alimentar con datos ###
+obj_kruskal = Kruskal()
+# nodes = ['a', 'b', 'c', 'd' , 'e', 'f', 'g']
+# edges = [['a', 'b', 7], ['a', 'd', 5], ['d', 'f', 6], ['b', 'e', 7], ['e', 'c', 5], ['e', 'g', 9]]
+nodes = ['a','b','c','d','e','f','g','h','i','j','k','l']
+edges = [['a','b',6],['a','c',6],['b','c',1],['a','d',6],['d','c',2],['b','e',2],['e','c',7],['e','f',4],['f','g',11],['c','g',2],['f','h',10],['h','g',22],['h','i',12],['i','g',2],['h','k',25],['i','k',16],['d','j',18],['i','j',1],['k','l',3],['j','l',8]]
+tree = obj_kruskal.kruskal(nodes, edges)
+print("El árbol obtenido es: ")
+print(tree)
+### Sumar los pesos del árbol resultante
+path = 0
+for edge in tree:
+    path += edge[2]
+print("El peso del árbol es: " + str(path))
