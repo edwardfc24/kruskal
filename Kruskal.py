@@ -11,7 +11,7 @@ class Kruskal:
     #                 Fin Si
     # Fin Para
     # Fin Método Kruskal
-
+    #the missil now where it is
 
     def __init__(self):
         self.nodes = {}
